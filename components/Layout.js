@@ -1,5 +1,6 @@
-import Link from "next/link";
 import Head from "next/head";
+import style from '../styles/Layout.module.css';
+import Menu from "./Menu";
 
 export default function Layout({children, title}) {
     return (<div>
@@ -8,11 +9,10 @@ export default function Layout({children, title}) {
             <meta name='Cuba' content='Store create in Next-js'/>
         </Head>
         <div>
-            <Link href={'/store'}><a>Store</a></Link>
-            <Link href={'/faq'}><a>Faq</a></Link>
-            <Link href={'/'}><a>Home</a></Link>
+            <Menu/>
         </div>
-        {children}
+        <div className={style.container}>{children}</div>
+
         <div>feet</div>
     </div>)
 }
