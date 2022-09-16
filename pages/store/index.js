@@ -1,13 +1,14 @@
 import Layout from "../../components/Layout";
 import {getItems} from "../../services/itemServices";
-import Image from 'next/image';
+import Product from "../../components/Product";
+import style from '../../styles/Product.module.css'
 
 export default function Index({items}) {
     return <Layout title={'Products'}>
         <div><h1>Store</h1></div>
-        {items && items.map(item => <div key={item.id}>
-            <Image src={item.image} width='200' height='200'/>
-            {item.title}</div>)}
+        <div className={style.items}>
+            {items && items.map(item => <Product key={item.id} item={item} showAs={'default'}/>)}
+        </div>
     </Layout>
 }
 
